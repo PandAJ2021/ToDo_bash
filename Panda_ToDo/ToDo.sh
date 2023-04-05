@@ -127,10 +127,10 @@ main_menu() {
 			show_tasks
 			;;
 			"Tasks that done 📚️")
-        		show $file3 "Tasks that deleted"
+        		show $file3 "Tasks that done"
 			;;
 			"Tasks that deleted 🗑️") 
-        		show $file2 "Tasks that done"
+        		show $file2 "Tasks that deleted"
 			;;
 	                "Find a task 🔎")
 			search_menu
