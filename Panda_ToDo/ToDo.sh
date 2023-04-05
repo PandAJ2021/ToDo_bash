@@ -29,8 +29,12 @@ search() {
 
 replace_task() {
 	read -p "Enter the number of task: " number
-	sed -n $number"p" $1 >> $2 
-	sed -i  $number"d" $1
+	sed -n $number"p" $1 >> $2  #print base on line number
+	if [ $(sed -n $number"p" $1) ];then
+		echo "Done"
+	else
+		echo -e "${RED}Panda can't find the task!${NORMAL}";fi
+	sed -i  $number"d" $1  #delete base on line number
 }
 
 add_task() {
@@ -38,30 +42,20 @@ add_task() {
 	echo $task >> $file1
 }
 
-show_deleted() {
-	title "Tasks that deleted"
-	if [ ! -f "$file2" ];then
-		touch $file2;fi
-	sed '/^$/d' $file2
-	echo -e "${YELLOW}========================${NORMAL}"
-	select opt in "back";do
-        	case $opt in
-        	"back") main_menu;esac
-	done
-}
 
 
-show_done() {
-	title "Tasks that done"
-	if [ ! -f "$file3" ];then
-		touch $file3;fi
-	sed '/^$/d' $file3
-	echo -e "${YELLOW}========================${NORMAL}"
+show() {
+        title $2
+        if [ ! -f "$1" ];then
+                touch $1;fi
+        sed '/^$/d' $1 #remove additional lines.
+        echo -e "${YELLOW}========================${NORMAL}"
         select opt in "back";do
                 case $opt in
                 "back") main_menu;esac
         done
 }
+
 
 Exit() {
 	echo "Goodbye for now"
@@ -133,10 +127,10 @@ main_menu() {
 			show_tasks
 			;;
 			"Tasks that done 📚️")
-        		show_done
+        		show $file3 "Tasks that deleted"
 			;;
 			"Tasks that deleted 🗑️") 
-        		show_deleted
+        		show $file2 "Tasks that done"
 			;;
 	                "Find a task 🔎")
 			search_menu
