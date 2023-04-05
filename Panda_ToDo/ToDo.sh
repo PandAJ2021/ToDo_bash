@@ -52,7 +52,7 @@ show_deleted() {
 
 
 show_done() {
-	title "Tasks that deleted"
+	title "Tasks that done"
 	if [ ! -f "$file3" ];then
 		touch $file3;fi
 	sed '/^$/d' $file3
@@ -104,11 +104,11 @@ show_tasks() {
         cat -n $file1
         echo -e "${YELLOW}========================${NORMAL}"
         PS3="Enter index: "
-        select item in "Add a task 📌" "Delete a task ✂️" "tick the task 🖊️" "Back";do
+        select item in "Add a task 📌" "Delete a task ✂️" "Tick the task 🖊️" "Back";do
                 case $item in
                         "Add a task 📌") add_task ;;
                         "Delete a task ✂️") replace_task $file1 $file2;;
-                        "tick the task 🖊️") replace_task $file1 $file3;;
+                        "Tick the task 🖊️") replace_task $file1 $file3;;
                         "Back") main_menu;;
                         *)echo "Invalid option";;
                 esac
