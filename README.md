@@ -2,15 +2,24 @@
 
 Panda Task Manager is a simple bash script that enables users to manage their tasks. The script allows users to add, delete, and mark their tasks as completed.
 
+Sure, here's the updated "Getting Started" section:
+
 ## Getting Started
 
-To use Panda Task Manager, clone the repository and run the script in the terminal:
+To use Panda Task Manager, clone the repository and navigate to the `Panda_ToDo` folder in the terminal:
 
 ```bash
-git clone https://github.com/USERNAME/Panda-Task-Manager.git
-cd Panda-Task-Manager
-./panda.sh
+git clone https://github.com/PandAJ2021/m93-practices.git
+cd Panda_ToDo
 ```
+
+Then, run the `ToDo.sh` script:
+
+```bash
+./ToDo.sh
+```
+
+This will launch the Panda Task Manager script in the terminal.
 
 ## Usage
 
@@ -36,6 +45,3 @@ The "Find a Task" option allows users to search for a task by entering a keyword
 
 The "Exit" option allows users to exit the program.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
