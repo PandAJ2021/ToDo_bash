@@ -14,7 +14,7 @@ file3=./completed_task.txt
 title() {
         echo $(clear)
 	echo -e "${YELLOW}========================${NORMAL}"
-        echo -e "${YELLOW}🐼️ $1${CLEAR} 🐼️"
+        echo -e "${YELLOW}🐼️ $1${NORMAL} 🐼️"
         echo -e "${YELLOW}========================${NORMAL}"
 }
 
